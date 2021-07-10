@@ -1,0 +1,39 @@
+<h2>Hello!</h2>
+
+<div class="row">
+
+	<% @products.each do |p|%>
+	<div class="col-md-3">
+
+		<div>
+			<%= p.title%>
+		</div>
+
+		<div>
+			<img src="<%= p.path_to_image%>" width="200"/>
+		</div>
+		
+		<div>
+			<%= p.description%>
+		</div>
+
+		<div>
+			Size <%= p.size%> sm 
+		</div>
+		
+		<div>
+			Price <%= p.price%> rub
+		</div>
+		
+		<div>
+			<button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id %>)"> Add to cart </button> 
+		</div>
+		
+	</div>
+	<%end%>
+
+</div>
+
+
+
+
