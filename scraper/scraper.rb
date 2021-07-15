@@ -3,19 +3,17 @@ require "byebug"
 require "open-uri"
 
 def scraper
-  # value = "ruby"
-  url = URI ("https://www.upwork.com/ab/find-work/")
+  url = URI ("https://www.transfermarkt.ru/zenit-st-petersburg/startseite/verein/964")
   unparsed_page = open(url).read{|result| result.read}
   parsed_page = Nokogiri::HTML(unparsed_page)
-  # job_listings = parsed_page.css('div.click-area')
-  # job_listings.each do |job_listing|
-  #   job = {
-  #     title: job_listing.css('heading heading_level_3').text,
-  #     company:job_listing.css('serp-vacancy__company').text
-  #   }
-    
-  # end  
-  byebug
+
+  players = 
+    parsed_page.css('table.items > tbody > tr').map do |player|
+      {
+        name: player.at('.hide-for-small').text,
+        salary: player.at('.rechts.hauptlink').text.gsub(/[^\d\.a-z]/,'')
+      }
+  end
 end
 
 scraper
