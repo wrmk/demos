@@ -12,7 +12,8 @@ module Transfermarkt
 
   def self.club_price(club_url)
     players = players_by_club(club_url)
-    players.sum{}
+      .sum{|p| Transfermarkt.price_to_int(p[:salary])}
+
   end
 
   def self.price_to_int(price)
