@@ -1,5 +1,6 @@
 # sort with replace through first item
 array= [12,30,45,9,3,15,2,8]
+count = 0
 
 def func(arr) 
   arr.size.times do |x|
@@ -25,4 +26,11 @@ def replace(arr,elem)
   arr[0], arr[elem] = arr[elem], arr[0]
   p arr
 end
+
+TracePoint.trace(:call) do |t|
+  count += 1 if t.method_id == :replace
+end
+
 func(array)
+
+p count
