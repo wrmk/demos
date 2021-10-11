@@ -20,6 +20,13 @@
 # arr.select!{|elem| elem.chars[0] == 'с'}
 # p arr
 
-arr = %w[январь февраль март апрель май июнь июль август сентябbvxcbрь октябрь ноябрь декабрь]
+arr = %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]
 
-p arr.reduce{|summ,elem| summ if summ.chars.size < elem.chars.size; elem}
+arr2 = arr.reduce do |summ,elem| 
+  if summ.chars.size < elem.chars.size
+    summ 
+  else
+    elem
+  end
+end
+p arr2
