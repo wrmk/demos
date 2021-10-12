@@ -49,3 +49,14 @@
 # end
 # average_score = users_array.reduce(0){|total_score,user| total_score + user.score}/10
 # users_array.each{|user| p user if user.score > average_score}
+
+planets = {mercury: 5,venus: 4, earth: 7, mars: 1, jupiter: 15, saturn: 2, uranus: 8, neptune: 5.0}
+top_heavy = []
+top_light = []
+values = []
+planets.each{|planet| values << planet[1]}
+values.sort!
+planets.each{|planet| top_heavy << planet if planet[1] >= values.max(3)[2]}
+planets.each{|planet| top_light << planet if planet[1] <= values.min(3)[2]}
+p top_heavy
+p top_light
