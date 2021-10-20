@@ -1,7 +1,5 @@
 arr = [2,5]
-def arr.my_map(&block)
-   # p arr2 = self.each{block}
-   p arr2 = self.each{yield}
+def arr.my_map(&block) # analog map iterator
+   self.reduce([]){|arr2, x| arr2 << (yield x)}
 end
-
-arr.my_map{|x| x*x}
+p arr.my_map{|x| x*x}
