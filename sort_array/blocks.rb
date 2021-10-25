@@ -12,9 +12,13 @@
 
 arr = [5,5]
 def arr.my_reduce(*args)# analogue reduce
-   args.size == 1 ? (summary = args[0]) : (summary = self.first)# declare summary variable depends given argument or not
-   self.shift if args.size == 0 # shift array if summary not given
+   if args.size == 1 #if argument given, summary = argument
+      summary = args[0]
+   else
+      summary = self.first# if not summary = first elem of array, and shift array to iterate
+      self.shift
+   end
    self.each{|elem| summary = yield summary, elem}
    summary
 end
-p arr.my_reduce(10){|summ, elem| summ * elem}
+p arr.my_reduce(2){|summ, elem| summ * elem}
