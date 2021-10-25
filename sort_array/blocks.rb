@@ -10,15 +10,21 @@
 # end
 # p arr.my_select{|x| x > 2}
 
-arr = [5,5]
-def arr.my_reduce(*args)# analogue reduce
-   if args.size == 1 #if argument given, summary = argument
-      summary = args[0]
-   else
-      summary = self.first# if not summary = first elem of array, and shift array to iterate
-      self.shift
-   end
-   self.each{|elem| summary = yield summary, elem}
-   summary
-end
-p arr.my_reduce(2){|summ, elem| summ * elem}
+# arr = [5,5]
+# def arr.my_reduce(*args)# analogue reduce
+#    if args.size == 1 #if argument given, summary = argument
+#       summary = args[0]
+#    else
+#       summary = self.first# if not summary = first elem of array, and shift array to iterate
+#       self.shift
+#    end
+#    self.each{|elem| summary = yield summary, elem}
+#    summary
+# end
+# p arr.my_reduce(2){|summ, elem| summ * elem}
+
+# def walk(array,&block)
+#    yield array.each{|i|}
+# end   
+# arr = [[[1,2],3],[4,5,6], [7,[8,9]]]
+# walk(arr){|i| puts i}
