@@ -32,6 +32,8 @@
 def fib(num,&block)
    return 0 if num <= 1
    return 1 if num <= 2
-   fib(num - 1, &block) + fib(num - 2, &block)
+   elem = fib(num - 1, &block) + fib(num - 2)
+   block.call elem if block_given?
+   elem
 end
-p fib(3){|f| print "#{f} "}
+fib(5){|f| print "#{f} "}
