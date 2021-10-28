@@ -29,11 +29,20 @@
 # arr = [[[1,2],3],[4,5,6], [7,[8,9]]]
 # walk(arr){|i| puts i}
 
-def fib(num,&block)
-   return 0 if num <= 1
-   return 1 if num <= 2
-   elem = fib(num - 1, &block) + fib(num - 2)
-   block.call elem if block_given?
-   elem
-end
-fib(5){|f| print "#{f} "}
+# def fib(num,&block)
+#    return 0 if num <= 1
+#    return 1 if num <= 2
+#    elem = fib(num - 1, &block) + fib(num - 2)
+#    block.call elem if block_given?
+#    elem
+# end
+# fib(11){|f| print "#{f} "}
+
+# require 'date'
+# def week(week_num, &block)
+#    for day in 1..7 do
+#       date = Date.commercial(2021, week_num, day)
+#       yield date.strftime("%Y %m %d")
+#    end
+# end
+# week(15) {|date| p date}
