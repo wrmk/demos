@@ -46,3 +46,10 @@
 #    end
 # end
 # week(15) {|date| p date}
+
+# def weekends(&block)
+#   year = Time.now.year
+#   dates = Date.new(year).step(Date.new(year,-1,-1)).select{|day| day.sunday? or day.saturday?}
+#   dates.each{|day| yield day.strftime("%Y %m %d")}
+# end
+# weekends{|day| p day}
