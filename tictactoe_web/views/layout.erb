@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+<head>
+		<title>Game</title>
+		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="/vendor/jquery.js"></script>
+	    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+<table align="center">
+	<%y=1%>
+	<% @@r.each do |row| %>
+			<tr>
+				<%x=1%>	
+				<% row.each do |table| %>
+				<td>
+					<form action="/" method="post">
+						<div class="form-group">
+							<button style="width:40px;height:40px" 
+											type="submit" 
+
+											<%if table == 'X'%>
+												class="btn btn-primary"
+											<%else%> 
+												class="btn btn-success"
+											<%end%>
+											
+											width="100px" 
+											value="<%="#{x}"+" "+"#{y}"%>" 
+											name="choose" 
+											<%=@disabled%>> <%=table%> 
+							</button>&nbsp;
+						</div>
+					</form>
+				</td>
+				<%x+=1%>
+				<%end%>
+			</tr>
+		<%y+=1%>
+	<%end%>
+</table>
+
+<form action="/reset" method="post"  align="center">
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary" name="reset">Сброс</button>
+	</div>
+</form>
+    
+ </body>
+
+<h2 hidden><%=@index%></h2>
+</html>
