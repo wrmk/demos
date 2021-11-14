@@ -1,23 +1,22 @@
 class Factory
-  @@toys = 0
-  @@types = {teddy_bear: 0, ball: 0, cube: 0}
+
+  attr_reader :total, :offers
+  
+  def initialize
+    @total = 0
+    @offers = {teddy_bear: 0, ball: 0, cube: 0} 
+  end
+
   def build(arg)
-    @@toys += 1
-    @@types[arg] +=1
+    @total += 1
+    @offers[arg] +=1
     case arg
-    when :teddy_bear then toy = TeddyBear.new
-    when :ball then toy = Ball.new
-    when :cube then toy = Cube.new
+    when :teddy_bear then TeddyBear.new
+    when :ball then Ball.new
+    when :cube then Cube.new
     end
   end
 
-  def total
-   @@toys
-  end
-
-  def offers
-    @@types
-  end
 
   class TeddyBear
   end
