@@ -51,33 +51,62 @@
 
 # p 25.minutes
 
+# class Material
+#   @@status = 'solid'
+#   def status
+#     @@status
+#   end
+#   def melt
+#     @@status = 'liquid' if @@status == 'solid'
+#   end
+#   def sublime
+#     @@status = 'gaz' if @@status == 'solid'
+#   end 
+#   def freeze
+#     @@status = 'melt' if @@status == 'liquid'
+#   end
+#   def boil
+#     @@status = 'gaz' if @@status == 'liquid'
+#   end
+#   def condense
+#     @@status = 'liquid' if @@status == 'gaz'
+#   end   
+#   def deposit
+#     @@status = 'solid' if @@status == 'gaz'
+#   end
+# end
+
+# material = Material.new
+# material.sublime
+# material.condense
+
+# puts material.status
+
+require "state_machine"
 class Material
-  @@status = 'solid'
-  def status
-    @@status
-  end
-  def melt
-    @@status = 'liquid' if @@status == 'solid'
-  end
-  def sublime
-    @@status = 'gaz' if @@status == 'solid'
-  end 
-  def freeze
-    @@status = 'melt' if @@status == 'liquid'
-  end
-  def boil
-    @@status = 'gaz' if @@status == 'liquid'
-  end
-  def condense
-    @@status = 'liquid' if @@status == 'gaz'
-  end   
-  def deposit
-    @@status = 'solid' if @@status == 'gaz'
+  state_machine :status, initial: :solid do
+    event :melt do
+      transition solid: :liquid
+    end
+    event :freezing do
+      transition liquid: :solid
+    end
+    event :boil do
+      transition liquid: :gaz
+    end
+    event :condense do
+      transition gaz: :liquid
+    end
+    event :sublime do
+      transition solid: :gaz
+    end
+    event :deposit do
+      transition gaz: :solid
+    end     
   end
 end
 
 material = Material.new
-material.sublime
-material.condense
-
-puts material.status
+material.melt
+material.boil
+p material.status_name
