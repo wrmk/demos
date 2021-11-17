@@ -37,16 +37,47 @@
 # p factory.total
 # p factory.offers
 
-class Integer
-  def minutes
-    self * 60
+# class Integer
+#   def minutes
+#     self * 60
+#   end
+#   def hours
+#     self * 3600
+#   end
+#   def days
+#     self * 86400
+#   end
+# end
+
+# p 25.minutes
+
+class Material
+  @@status = 'solid'
+  def status
+    @@status
   end
-  def hours
-    self * 3600
+  def melt
+    @@status = 'liquid' if @@status == 'solid'
   end
-  def days
-    self * 86400
+  def sublime
+    @@status = 'gaz' if @@status == 'solid'
+  end 
+  def freeze
+    @@status = 'melt' if @@status == 'liquid'
+  end
+  def boil
+    @@status = 'gaz' if @@status == 'liquid'
+  end
+  def condense
+    @@status = 'liquid' if @@status == 'gaz'
+  end   
+  def deposit
+    @@status = 'solid' if @@status == 'gaz'
   end
 end
 
-p 25.minutes
+material = Material.new
+material.sublime
+material.condense
+
+puts material.status
