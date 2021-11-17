@@ -102,11 +102,14 @@ class Material
     end
     event :deposit do
       transition gaz: :solid
-    end     
+    end
+    state all do
+      p self.state.name
+    end
   end
 end
 
 material = Material.new
 material.melt
 material.boil
-p material.status_name
+material.freezing
