@@ -82,34 +82,101 @@
 
 # puts material.status
 
-require "state_machine"
-class Material
-  state_machine :status, initial: :solid do
-    event :melt do
-      transition solid: :liquid
-    end
-    event :freezing do
-      transition liquid: :solid
-    end
-    event :boil do
-      transition liquid: :gaz
-    end
-    event :condense do
-      transition gaz: :liquid
-    end
-    event :sublime do
-      transition solid: :gaz
-    end
-    event :deposit do
-      transition gaz: :solid
-    end
-    state all do
-      p self.state.name
-    end
-  end
+# require "state_machine"
+# class Material
+#   state_machine :status, initial: :solid do
+#     event :melt do
+#       transition solid: :liquid
+#     end
+#     event :freezing do
+#       transition liquid: :solid
+#     end
+#     event :boil do
+#       transition liquid: :gaz
+#     end
+#     event :condense do
+#       transition gaz: :liquid
+#     end
+#     event :sublime do
+#       transition solid: :gaz
+#     end
+#     event :deposit do
+#       transition gaz: :solid
+#     end
+#     state all do
+#       p self.state.name
+#     end
+#   end
+# end
+
+# material = Material.new
+# material.melt
+# material.boil
+# material.freezing
+
+# class Hello
+#   def initialize(name)
+#     @name = name
+#   end
+#   def say
+#     puts "Hello, #{@name}!"
+#   end
+# end  
+
+# h = Hello.new("ahaha")
+# h.say
+
+# class User
+#   attr_accessor :name, :surname, :second_name
+#   def initialize(name:, surname:, second_name:)
+#     @name = name
+#     @surname = surname
+#     @second_name = second_name
+#   end    
+# end
+
+# user1 = User.new(name: "Bob", surname: "swan", second_name: "fifth")
+# user2 = User.new(name: "Jess", surname: "longest", second_name: "third")
+
+# class Group
+#   def initialize(group = [])
+#     @group = group
+#   end
+#   def each
+#     @group.each{|user| p user}
+#   end
+# end
+
+# group = Group.new([user1,user2])
+# group.each
+
+# class Foo
+#   attr_accessor :hash
+#   def initialize(hash = {})
+#     @hash = hash
+#   end
+#   def method_missing(name)
+#     @hash[name]
+#   end
+# end
+
+# hash = {
+#   hello: "привет",
+#   bye: 'пока'
+# }
+
+# foo = Foo.new(hash)
+# p foo.hello
+
+class List
+  def initialize(*args)
+    @args = args
+  end 
+
+  def each(&block)
+    @args.each{|arg| yield arg}
+  end  
 end
 
-material = Material.new
-material.melt
-material.boil
-material.freezing
+list = List.new('df','sdfsdf')
+list.each{|arg| p arg}
