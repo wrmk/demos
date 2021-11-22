@@ -11,6 +11,7 @@ def get_pairs(arr,sum) # выводит новый массив с парами 
         arr.delete_at(0)
       end
     end
+  break if arr.size < 2
   end
   arr2
 end
