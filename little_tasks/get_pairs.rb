@@ -4,8 +4,8 @@ def get_pairs(arr,sum) # выводит новый массив с парами 
     for index in 1...arr.size do
       if (arr[0] + arr[index]) == sum
         arr2 << [arr[0],arr[index]]
+        arr.delete_at(index)
         arr.delete_at(0)
-        arr.delete_at(index-1)
         break
       elsif index == arr.size - 1
         arr.delete_at(0)
