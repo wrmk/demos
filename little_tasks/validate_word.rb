@@ -1,19 +1,25 @@
-str = "fsdfsDfs"
-result = []
-if str[0].upcase == str[0]
-  for i in 1...str.size do
-    result << (str[i].upcase == str[i] ? true : false)
-  end
-  if result.select{|el| el == true}.size == str.size - 1 || result.select{|el| el == false}.size == str.size - 1
-    p true
+def valid?(word)
+  result = []
+  if word[0].upcase == word[0]
+    for i in 1...word.size do
+      result << (word[i].upcase == word[i] ? true : false)
+    end
+    if result.count(true) == word.size - 1 || result.count(false) == word.size - 1
+      true
+    else
+      false
+    end
   else
-    p false
-  end
-else
-  for i in 1...str.size do
-    if str[i].upcase == str[i]
-      p false
-      break
+    for i in 1...word.size do
+      if word[i].upcase == word[i]
+        return false
+      elsif i == word.size - 1
+        return true
+      end
     end
   end
 end
+
+str = %w[Hello hello HELLO heLlo HellO]
+
+str.each{|word| p valid?(word)}
