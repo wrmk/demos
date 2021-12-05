@@ -9,7 +9,8 @@ end
 
 submarine = WarShip.new
 dry_cargo = CivilShip.new
-container = CivilShip.new{ undef :hold}
+container = CivilShip.new
+container.instance_eval ('undef :hold, :hold=')
 
 
 p container.methods
