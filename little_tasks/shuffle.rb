@@ -7,8 +7,7 @@ def permutation(arr)
 
     while arr_copy.size > 0
         random = rand(0...arr_copy.size)
-        arr2 << arr_copy[random]
-        arr_copy.delete_at(random)
+        arr2 << arr_copy.delete_at(random) #добавляем в новый массив элемент который удалили из arr_copy
     end
     arr2
 end
