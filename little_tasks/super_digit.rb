@@ -1,9 +1,6 @@
 def super_digit1(val)
   val = val.digits.sum
-  if val > 9
-    val = super_digit1(val)
-  end
-  val
+  val > 9 ? super_digit1(val) : val
 end
 
 def super_digit2(val)
