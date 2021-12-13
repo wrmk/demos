@@ -29,17 +29,15 @@
 # p moderator.say
 
 
-# class Person
-#   attr_accessor :name, :surname
-# end
-# class User < Person
-# end
-# user = User.new
-# user.name = 'bob'
-# p user.name
-# class Person
-#   def self.new
-#     'restrict to create'
-#   end
-# end
-# p Person.new
+class Person
+  attr_accessor :name, :surname
+end
+class User < Person
+end
+user = User.new
+user.name = 'bob'
+p user.name
+class Person
+  private_class_method :new
+end
+p Person.new
