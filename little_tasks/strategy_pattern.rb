@@ -9,14 +9,14 @@ class Context
 end
 
 class Strategy
-  def message
-    'there is no selected strategy'
+  def to_array(string)
+    [string]
   end
 end
 
 class FirstStrategy < Strategy
   def message
-    'first strategy'
+    to_array('first strategy')
   end
 end
 
@@ -26,5 +26,5 @@ class SecondStrategy < Strategy
   end
 end
 
-context = Context.new(SecondStrategy.new)
+context = Context.new(FirstStrategy.new)
 p context.message
