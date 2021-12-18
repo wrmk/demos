@@ -1,11 +1,11 @@
-def euclid(arg1,arg2)
-  arr = [arg1,arg2].sort!
+def euclid(val1,val2)
+  arr = [val1,val2].sort!
 
   while arr[0] != arr[1]
     arr[1] -= arr[0]
     arr.sort!
   end
-  p arr
+  arr[0]
 end
 
-euclid(240,1024)
+p euclid(240,1024)
