@@ -5,7 +5,7 @@ def quick_sort(arr)
     return arr
   end
 
-  pivot = arr.delete_at(arr.size/2)
+  pivot = arr.delete_at(rand(0...arr.size))
   low, high = arr.partition{|val| val <= pivot}
   low = quick_sort(low)
   high = quick_sort(high)
