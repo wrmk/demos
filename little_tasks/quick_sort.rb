@@ -19,4 +19,5 @@ p Benchmark.measure{quick_sort(arr)}
 p Benchmark.measure{arr.sort!}
 
 
-
+# arr = Array.new(100){rand(100)}
+# arr2 = (0..100).to_a.shuffle
