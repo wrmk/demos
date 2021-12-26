@@ -20,7 +20,3 @@ def merge_sort(arr)
   end
   summary
 end
-
-
-arr = (0...100).to_a.shuffle
-p merge_sort(arr)

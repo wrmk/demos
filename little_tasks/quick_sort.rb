@@ -1,5 +1,3 @@
-require 'benchmark'
-
 def quick_sort(arr)
   if arr.size < 2
     return arr
@@ -12,10 +10,5 @@ def quick_sort(arr)
 
   low + [pivot] + high
 end
-
-arr = (0..10000).to_a.shuffle
-
-p Benchmark.measure{quick_sort(arr)}
-p Benchmark.measure{arr.sort!}
 
 
