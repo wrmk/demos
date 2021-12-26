@@ -4,9 +4,9 @@ def merge_sort(arr)
     return arr
   end
 
-  arr = arr.each_slice((arr.size + 1)/2).to_a
-  left = merge_sort(arr[0])
-  right = merge_sort(arr[1])
+  left,right = arr.each_slice((arr.size + 1)/2).to_a
+  left = merge_sort(left)
+  right = merge_sort(right)
   summary = []
 
   while left.size > 0 || right.size > 0
