@@ -13,11 +13,9 @@ def quick_sort(arr)
   low + [pivot] + high
 end
 
-arr = Array.new(100000){rand(1000)}
+arr = (0..10000).to_a.shuffle
 
 p Benchmark.measure{quick_sort(arr)}
 p Benchmark.measure{arr.sort!}
 
 
-# arr = Array.new(100){rand(100)}
-# arr2 = (0..100).to_a.shuffle
