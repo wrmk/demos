@@ -12,9 +12,9 @@ def merge_sort(arr)
   while left.size > 0 || right.size > 0
     summary << begin
       if left.size > 0 && right.size > 0
-        left[0] < right[0] ? left.delete_at(0) : right.delete_at(0)
+        left[0] < right[0] ? left.shift : right.shift
       else
-        left.delete_at(0) || right.delete_at(0)
+        left.shift || right.shift
       end
     end
   end
