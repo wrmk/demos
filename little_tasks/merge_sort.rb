@@ -20,3 +20,38 @@ def merge_sort(arr)
   end
   summary
 end
+
+
+def merge_sort_v2(arr)
+  if arr.size < 3
+    arr[0], arr[1] = arr[1], arr[0] if arr.size == 2 && arr[1] < arr[0]
+    return arr
+  end
+
+  left,right = arr.each_slice((arr.size + 1)/2).to_a
+  left = merge_sort_v2(left)
+  right = merge_sort_v2(right)
+
+  summary = []
+  i = 0
+  k = 0
+
+  while i < left.size || k < right.size
+    if left[i] && right[k]
+      if left[i] < right[k]
+        summary << left[i]
+        i+=1
+      else
+        summary << right[k]
+        k+=1
+      end
+    else
+      summary << (left[i] || right[k])
+      i+=1
+      k+=1
+    end
+
+  end
+  summary
+
+end
