@@ -50,8 +50,6 @@ def merge_sort_v2(arr)
       i+=1
       k+=1
     end
-
   end
   summary
-
 end
