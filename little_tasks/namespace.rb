@@ -30,11 +30,11 @@ class Unit
 
   def add(role:, name:)
     employee = Employee.new(role: role,name: name)
-    @employees << employee.to_s
+    @employees << employee
   end
 
   def remove(name:)
-    @employees.delete(name)
+    @employees.delete_if{|employee| employee.name == name }
   end
 
   class Employee
@@ -44,9 +44,6 @@ class Unit
       @name = name
     end
 
-    def to_s
-      name
-    end
   end
 end
 
