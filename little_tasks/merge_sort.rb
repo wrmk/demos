@@ -36,20 +36,14 @@ def merge_sort_v2(arr)
   i = 0
   k = 0
 
-  while left[i] || right[k]
-    if left[i] && right[k]
-      if left[i] < right[k]
-        summary << left[i]
-        i+=1
-      else
-        summary << right[k]
-        k+=1
-      end
-    else
-      summary << (left[i] || right[k])
+  while left[i] && right[k]
+    if left[i] < right[k]
+      summary << left[i]
       i+=1
+    else
+      summary << right[k]
       k+=1
     end
   end
-  summary
+  summary += left[i..-1] + right[k..-1]
 end
