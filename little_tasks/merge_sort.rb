@@ -33,8 +33,7 @@ def merge_sort_v2(arr)
   right = merge_sort_v2(right)
 
   summary = []
-  i = 0
-  k = 0
+  i = k = 0
 
   while left[i] && right[k]
     if left[i] < right[k]
