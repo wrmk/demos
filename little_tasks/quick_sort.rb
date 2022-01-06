@@ -18,7 +18,13 @@ module QuickSort
     end
 
     pivot = self.delete_at(rand(0...self.size))
-    left, right = self.partition{|val| (block.call val) < (block.call pivot)}
+    left, right = self.partition do |val|
+      if block_given?
+        (block.call val) < (block.call pivot)
+      else
+        val < pivot
+      end
+    end
     left = left.quick_sort_v2(&block)
     right = right.quick_sort_v2(&block)
 
