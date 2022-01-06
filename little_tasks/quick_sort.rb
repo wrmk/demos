@@ -1,13 +1,13 @@
 module QuickSort
-  def quick_sort(arr = self)
-    if arr.size < 2
-      return arr
+  def quick_sort
+    if self.size < 2
+      return self
     end
 
-    pivot = arr.delete_at(rand(0...arr.size))
-    low, high = arr.partition{|val| val < pivot}
-    low = quick_sort(low)
-    high = quick_sort(high)
+    pivot = self.delete_at(rand(0...self.size))
+    low, high = self.partition{|val| val < pivot}
+    low = low.quick_sort
+    high = high.quick_sort
 
     low + [pivot] + high
   end
