@@ -5,9 +5,12 @@ require_relative 'merge_sort'
 Array.include QuickSort
 
 
-arr = (0..1_000_000).to_a.shuffle
-# p arr.quick_sort
-p Benchmark.measure{merge_sort(arr)}
-p Benchmark.measure{merge_sort_v2(arr)}
-p Benchmark.measure{arr.quick_sort}
+arr = (0..1_00).to_a.shuffle
+arr2 = Array.new(100){Array('a'..'z').sample(rand(1..25)).join}
+
+p arr2.quick_sort_v2{|val| val.size}
+# p arr.quick_sort_v2{|val| -val}
+# p Benchmark.measure{merge_sort(arr)}
+# p Benchmark.measure{merge_sort_v2(arr)}
+# p Benchmark.measure{arr.quick_sort}
 
