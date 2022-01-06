@@ -2,9 +2,7 @@ require 'benchmark'
 require_relative 'quick_sort'
 require_relative 'merge_sort'
 
-class Array
-  include QuickSort
-end
+Array.include QuickSort
 
 
 arr = (0..1_000_000).to_a.shuffle
