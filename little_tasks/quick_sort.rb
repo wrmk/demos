@@ -12,8 +12,8 @@ module QuickSort
         val < pivot
       end
     end
-    left = left.quick_sort(&block)
-    right = right.quick_sort(&block)
+    left.quick_sort!(&block)
+    right.quick_sort!(&block)
 
     left + [pivot] + right
   end
