@@ -17,4 +17,8 @@ module QuickSort
 
     left + [pivot] + right
   end
+
+  def quick_sort!(&block)
+    self.replace(quick_sort(&block))
+  end
 end
