@@ -53,3 +53,15 @@
 #   dates.each{|day| yield day.strftime("%Y %m %d")}
 # end
 # weekends{|day| p day}
+
+def func(val1, val2, block)
+  return val1 if val1 == val2
+  val1 = func(val1, val2 - 1, block)
+  block.call val1, val2
+end
+
+sum = -> (val1, val2){val1 + val2}
+multi = -> (val1, val2){val1 * val2}
+
+p func(5, 8, sum)
+p func(5, 8, multi)
